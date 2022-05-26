@@ -12,3 +12,8 @@
 }
 
 .link:hover {color: white;}
+
+.btn-link {
+   display: flex;
+   justify-content: space-between;
+}

@@ -1,9 +1,11 @@
 import {Routes, Route  } from 'react-router-dom'
 import './App.css';
-import State from './context/State';
+import State from './contextTransaction/State';
 import Home from './component/Home';
 import AddTransactions from './component/AddTransactions';
 import Information from './component/information';
+import Connnexion from './authentification/Connnexion';
+import Inscription from './authentification/Inscription';
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
             <Route path='/:type/:index:' element={<Information/>} />
             <Route path='/:type/:index' element={<Information/>} />
           </Route>
+          <Route path='/connexion' element={<Connnexion/>} />
+          <Route path='/inscription' element={<Inscription/>} />
           <Route path='/addTransactions' element={<AddTransactions/>} />
         </Routes>
       </State>

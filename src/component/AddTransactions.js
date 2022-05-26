@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { StateContext } from '../context/State';
+import { StateContext } from '../contextTransaction/State';
 
 const AddTransactions = () => {
     const [date, setDate] = useState("");

@@ -1,12 +1,13 @@
 import React, { useContext} from 'react';
-import {Link, Outlet} from "react-router-dom";
-import { StateContext } from '../context/State';
+import {Link, Outlet } from "react-router-dom";
+import { StateContext } from '../contextTransaction/State';
 
 
 const Home = () => {
-
+    
     const {transactions, budget} = useContext(StateContext);
-
+    
+    
     const revenus = transactions.revenu.map(({date, type, montant}, index) => {
         if(type === "revenu") {
             return (

@@ -1,9 +1,23 @@
 import React, {createContext,useState, useEffect, useReducer} from 'react';
+import Inscription from '../authentification/Inscription';
 import { reducer } from './Reducer';
 
 export const StateContext = createContext();
 
 const State = ({children}) => {
+
+    // get datas from localStorage
+    const savedAuthentification = JSON.parse(localStorage.getItem("authentification"));
+
+    // initialize the state: authentification according to the result of savedAuthentification
+    const [authentification, setAuthentification] = useState(savedAuthentification ? savedAuthentification : {inscriptions:[]} );
+
+   
+
+
+
+
+
 
     // get datas from localStorage
     const savedBudget = JSON.parse(localStorage.getItem("budget"));
@@ -45,13 +59,16 @@ const State = ({children}) => {
     
 
     useEffect (() => {
+
+      localStorage.setItem("authentification", JSON.stringify(authentification));
+
         localStorage.setItem("transactions", JSON.stringify(transactions));
         localStorage.setItem("budget", JSON.stringify(budget));
-    }, [transactions, budget]);
+    }, [transactions, budget, authentification]);
 
 
   return (
-    <StateContext.Provider value={{budget, setBudget, transactions, addTransaction,}}>
+    <StateContext.Provider value={{budget, setBudget, transactions, addTransaction, authentification, setAuthentification}}>
         {children}
     </StateContext.Provider>
   )

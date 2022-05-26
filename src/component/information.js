@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {useParams} from "react-router-dom";
-import {StateContext} from "../context/State"
+import {StateContext} from "../contextTransaction/State"
 
 function Information() {
 
